@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:layout_samples/widgets/drawer.dart';
+import 'package:layout_samples/pages/home-page.dart';
 
 void main() {
   runApp(MyApp());
@@ -18,22 +18,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Layouts'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(this.title),
-      ),
-      drawer: AppDrawer()
+      home: HomePage(),
     );
   }
 }
