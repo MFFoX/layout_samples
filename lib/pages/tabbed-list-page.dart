@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:layout_samples/widgets/app-bar.dart';
 import 'package:layout_samples/widgets/drawer.dart';
 
 class TabbedListPage extends StatelessWidget {
@@ -8,9 +9,7 @@ class TabbedListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: AppBar(
-          title: Text("Tabbed List"),
-        ),
+        appBar: appBar("Tabbed List"),
         drawer: AppDrawer(),
         body: Center(child: Text("TabbedListPage")));
   }
