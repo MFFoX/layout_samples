@@ -8,9 +8,6 @@ class NonScrollingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-        appBar: AppBar(
-          title: Text("Non-scrolling"),
-        ),
         drawer: AppDrawer(),
         body: Center(child: Text("NonScrollingPage")));
   }
