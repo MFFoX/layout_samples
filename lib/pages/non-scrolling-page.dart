@@ -22,24 +22,32 @@ class NonScrollingPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Flexible(
-                    flex: 2,
+                    flex: 1,
                     fit: FlexFit.tight,
-                    child: Center(child:
-                        Image.asset("assets/kikbak/logo.png", width: 123, height: 42.43)
-                    )
-                ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Image.asset("assets/kikbak/logo.png",
+                            width: 123, height: 42.43),
+                      ],
+                    )),
                 Flexible(
                     flex: 4,
                     fit: FlexFit.tight,
-                    child: Center(child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("Discover new leads", style: TextStyles.title.bold.lightColor),
+                    child: Center(
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                          Text("Discover new leads",
+                              style: TextStyles.title.bold.lightColor),
                           Container(
-                            padding: EdgeInsets.only(top: 33, left: 43, right: 43),
+                            padding:
+                                EdgeInsets.only(top: 33, left: 43, right: 43),
                             child: Text(
                                 "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio.",
-                                style: TextStyles.bodyLight.lightColor.weight(FontWeight.w100), textAlign: TextAlign.center),
+                                style: TextStyles.bodyLight.lightColor
+                                    .weight(FontWeight.w100),
+                                textAlign: TextAlign.center),
                           ),
                           Container(
                             padding: EdgeInsets.only(top: 55),
@@ -47,33 +55,33 @@ class NonScrollingPage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Icon(Icons.circle, size: 8, color: Colors.white),
-                                Icon(Icons.circle, size: 8, color: ThemeColors.LightSlateBlue),
-                                Icon(Icons.circle, size: 8, color: Colors.white),
-                                Icon(Icons.circle, size: 8, color: Colors.white),
-                                Icon(Icons.circle, size: 8, color: Colors.white),
+                                Icon(Icons.circle,
+                                    size: 9, color: Colors.white),
+                                Icon(Icons.circle,
+                                    size: 9, color: ThemeColors.LightSlateBlue),
+                                Icon(Icons.circle,
+                                    size: 9, color: Colors.white),
+                                Icon(Icons.circle,
+                                    size: 9, color: Colors.white),
+                                Icon(Icons.circle,
+                                    size: 9, color: Colors.white),
                                 Icon(Icons.circle, size: 8, color: Colors.white)
                               ],
                             ),
                           )
-                        ]
-                      )
-                    )
-                ),
+                        ]))),
                 Flexible(
                     fit: FlexFit.tight,
                     flex: 4,
                     child: Container(
                       width: 290,
                       decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage("assets/kikbak/device-white.png"),
-                          fit: BoxFit.cover,
-                          alignment: AlignmentDirectional.topCenter
-                        )
-                      ),
-                    )
-                ),
+                          image: DecorationImage(
+                              image:
+                                  AssetImage("assets/kikbak/device-white.png"),
+                              fit: BoxFit.cover,
+                              alignment: AlignmentDirectional.topCenter)),
+                    )),
               ],
             ),
           ),

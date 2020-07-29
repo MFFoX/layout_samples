@@ -13,7 +13,7 @@ class FontSizes {
   static double scale = 1;
   static double get body => 16 * scale;
   static double get bodySm => 11 * scale;
-  static double get title => 28 * scale;
+  static double get title => 34 * scale;
   static double get titleSm => 20 * scale;
 }
 
