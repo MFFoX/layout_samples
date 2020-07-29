@@ -4,9 +4,23 @@ import 'package:layout_samples/pages/form.dart';
 import 'package:layout_samples/pages/home-page.dart';
 import 'package:layout_samples/pages/non-scrolling-page.dart';
 import 'package:layout_samples/pages/tabbed-list-page.dart';
+import 'package:layout_samples/routes/routes.dart';
 
 class AppDrawer extends StatelessWidget {
+
+  String getCurrentRouteName(context) {
+    String currentRouteName;
+
+    Navigator.popUntil(context, (route) {
+      currentRouteName = route.settings.name;
+      return true;
+    });
+
+    return currentRouteName;
+  }
+
   Widget _createHeader() {
+
     return DrawerHeader(
         margin: EdgeInsets.zero,
         padding: EdgeInsets.zero,
@@ -26,8 +40,8 @@ class AppDrawer extends StatelessWidget {
         ]));
   }
 
-  Widget _createDrawerItem(
-      {IconData icon, String text, GestureTapCallback onTap}) {
+  Widget _createDrawerItem(BuildContext context, {IconData icon, String text, String route, GestureTapCallback onTap}) {
+    final currentRoute = getCurrentRouteName(context);
     return ListTile(
       title: Row(
         children: <Widget>[
@@ -39,24 +53,42 @@ class AppDrawer extends StatelessWidget {
         ],
       ),
       onTap: onTap,
+      selected: currentRoute == route,
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    final currentRoute = getCurrentRouteName(context);
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
           _createHeader(),
-          _createDrawerItem(icon: Icons.home, text: 'Home',
-              onTap: () => context.navigateTo(HomePage())),
-          _createDrawerItem(icon: Icons.aspect_ratio, text: 'Non-Scrolling', 
-              onTap: () => context.navigateTo(NonScrollingPage())),
-          _createDrawerItem(icon: Icons.view_list, text: 'Tabbed List',
-              onTap: () => context.navigateTo(TabbedListPage())),
-          _createDrawerItem(icon: Icons.keyboard, text: 'Form',
-              onTap: () => context.navigateTo(FormPage())),
+          _createDrawerItem(context, icon: Icons.home, text: 'Home', route: Routes.home,
+              onTap: () {
+                if(currentRoute == Routes.home) return;
+                context.navigateTo(HomePage());
+              }
+            ),
+          _createDrawerItem(context, icon: Icons.aspect_ratio, text: 'Non-Scrolling', route: Routes.nonScrolling,
+              onTap: () {
+                if(currentRoute == Routes.nonScrolling) return;
+                context.navigateTo(NonScrollingPage());
+              }
+          ),
+          _createDrawerItem(context, icon: Icons.view_list, text: 'Tabbed List', route: Routes.tabbedList,
+              onTap: () {
+                if(currentRoute == Routes.tabbedList) return;
+                context.navigateTo(TabbedListPage());
+              }
+          ),
+          _createDrawerItem(context, icon: Icons.keyboard, text: 'Form', route: Routes.form,
+              onTap: () {
+                if(currentRoute == Routes.form) return;
+                context.navigateTo(FormPage());
+              }
+          ),
           Divider(),
           ListTile(
             title: Text('0.0.1'),

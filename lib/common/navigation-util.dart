@@ -7,5 +7,10 @@ extension NavigationExtension on BuildContext {
     Navigator.of(this)
         .push(MaterialPageRoute(builder: (BuildContext context) => page));
   }
+
+  void navigateToNamed(String route){
+    Navigator.of(this).pop();
+    Navigator.pushReplacementNamed(this, route);
+  }
 }
 

@@ -5,6 +5,8 @@ import 'package:layout_samples/widgets/drawer.dart';
 
 class HomePage extends StatelessWidget {
   final String title;
+  static const String routeName = '/';
+
   HomePage({Key key, this.title = "Sample Layouts"}) : super(key: key);
 
   @override
