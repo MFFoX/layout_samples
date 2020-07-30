@@ -8,6 +8,7 @@ PreferredSizeWidget appBar(String title, {Color backgroundColor}) {
     : null;
 
   return AppBar(
+    centerTitle: true,
     title: Text(title),
     flexibleSpace: flexImage,
     backgroundColor: backgroundColor != null ? backgroundColor : Colors.transparent,
