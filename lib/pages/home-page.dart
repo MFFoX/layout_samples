@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:layout_samples/models/generator.dart';
 import 'package:layout_samples/models/seller.dart';
 import 'package:layout_samples/widgets/app-bar.dart';
@@ -80,7 +81,6 @@ class HomePage extends StatelessWidget {
   }
 
   Widget buildRecentLeads() {
-    print("seller leads count: " + seller.leads.length.toString());
     var recentLeads = seller.leads.take(3);
     return ListView.separated(
         scrollDirection: Axis.vertical,
@@ -123,8 +123,6 @@ class HomePage extends StatelessWidget {
   }
 
   Widget buildMyFriends() {
-    print("seller friends count: " + seller.friends.length.toString());
-
     return ListView.separated(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
@@ -144,6 +142,9 @@ class HomePage extends StatelessWidget {
           final currentFriend = seller.friends[i - 1];
 
           return ListTile(
+              leading: CircleAvatar(
+                backgroundImage: AssetImage(currentFriend.profilePic),
+              ),
               title: Text(currentFriend.fullName,
                   style: TextStyles.body.bold.size(15).c(Colors.black87)),
               subtitle: Text(currentFriend.recentAction,
