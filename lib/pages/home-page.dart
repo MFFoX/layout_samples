@@ -22,15 +22,16 @@ class HomePage extends StatelessWidget {
         appBar: appBar(title, backgroundColor: ThemeColors.LightSlateBlue),
         drawer: AppDrawer(),
         body: Container(
-            padding: EdgeInsets.only(top: 23, left: 9, right: 9, bottom: 9),
+            padding: EdgeInsets.only(top: 23, left: 9, right: 9),
             color: ThemeColors.LightSlateBlue,
             width: (MediaQuery.of(context).size.width),
             height: double.infinity,
             child: SingleChildScrollView(
+              padding: EdgeInsets.only(bottom: 9),
               child: Column(children: [
                 Container(
-                    height: 91,
-                    padding: EdgeInsets.only(bottom: 15),
+                    height: 150,
+                    padding: EdgeInsets.only(bottom: 59),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
