@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 class ThemeColors{
   static const Color MidnightExpress = Color.fromRGBO(21, 21, 34, 1);
   static const Color LightSlateBlue = Color.fromRGBO(109, 126, 255, 1);
+  static const Color LightSkyBlue = Color.fromRGBO(155, 166, 250, 1);
   static const Color Glacier = Color.fromRGBO(124, 186, 189, 1);
   static const Color DodgerBlue = Color.fromRGBO(0, 132, 244, 1);
   static const Color MayaBlue = Color.fromRGBO(78, 174, 255, 1);
@@ -38,6 +39,7 @@ extension TextStyleHelpers on TextStyle {
   TextStyle get darkColor => copyWith(color: ThemeColors.MidnightExpress);
 
   TextStyle weight(FontWeight value) => copyWith(fontWeight: value);
+  TextStyle size(double value ) => copyWith(fontSize: value);
   TextStyle letterSpace(double value) => copyWith(letterSpacing: value);
   TextStyle c(Color value) => copyWith(color: value);
 }

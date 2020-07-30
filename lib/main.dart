@@ -13,6 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Layout Samples',
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          elevation: 0, // This removes the shadow from all App Bars.
+        ),
         primaryColor: ThemeColors.LightSlateBlue,
         primaryColorDark: ThemeColors.MidnightExpress,
         // This makes the visual density adapt to the platform that you run
