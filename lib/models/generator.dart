@@ -48,9 +48,10 @@ class UserGen {
   Seller generateSeller() {
     var baseUser = getRandomUser();
     var businessName = getBusinessName();
+    var friends = generateFriends(getSmallNumber());
+    var leads = generateLeads(getSmallNumber());
 
-    return Seller.fromUser(baseUser, businessName);
-
+    return Seller.fromUser(baseUser, businessName, friends, leads);
   }
 
   List<Seller> generateSellers(int length) {
