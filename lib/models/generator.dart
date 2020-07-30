@@ -5,19 +5,31 @@ import 'package:layout_samples/models/seller.dart';
 import 'package:layout_samples/models/user.dart';
 import 'package:ultimate_data_generator/ultimate_data_generator.dart';
 
-final random = new Random();
-final getSmallNumber = () => random.nextInt(5 - 2) + 1;
-
 class UserGen {
-  Friend generateFriend() {
-    var baseUser = getRandomUser();
-    var sellers = generateSellers(getSmallNumber());
-    var recentActions = getRecentAction();
-
-    return Friend.fromUser(baseUser, sellers, recentActions);
+  static int getSmallNumber(){
+    var rand = Random().nextInt(5) + 1;
+    return rand;
   }
 
-  List<Friend> generateFriends(int length) {
+  static int getLargeNumber(){
+    var rand = Gen.generateNumberInRange(a: 500, b: 5000);
+    return rand;
+  }
+
+  static double getSmallDouble(){
+    var smallInt = getSmallNumber();
+    var randDouble = Random().nextDouble();
+    return smallInt + randDouble;
+  }
+
+  static Friend generateFriend() {
+    var baseUser = getRandomUser();
+    var recentActions = getRecentAction();
+
+    return Friend.fromUser(baseUser, recentActions);
+  }
+
+  static List<Friend> generateFriends(int length) {
     var friends = List<Friend>();
     for(int i = 0; i < length; i++){
       friends.add(generateFriend());
@@ -26,7 +38,7 @@ class UserGen {
     return friends;
   }
 
-  Lead generateLead() {
+  static Lead generateLead() {
     var baseUser = getRandomUser();
     var phoneNumber = getPhoneNumber();
     var referrer = generateFriend();
@@ -36,7 +48,7 @@ class UserGen {
 
   }
 
-  List<Lead> generateLeads(int length) {
+  static List<Lead> generateLeads(int length) {
     var leads = List<Lead>();
     for(int i = 0; i < length; i++){
       leads.add(generateLead());
@@ -45,7 +57,7 @@ class UserGen {
     return leads;
   }
 
-  Seller generateSeller() {
+  static Seller generateSeller() {
     var baseUser = getRandomUser();
     var businessName = getBusinessName();
     var friends = generateFriends(getSmallNumber());
@@ -54,7 +66,7 @@ class UserGen {
     return Seller.fromUser(baseUser, businessName, friends, leads);
   }
 
-  List<Seller> generateSellers(int length) {
+  static List<Seller> generateSellers(int length) {
     var sellers = List<Seller>();
     for(int i = 0; i < length; i++){
       sellers.add(generateSeller());
@@ -79,7 +91,7 @@ class FemaleUser implements RandomUserInterface{
 
 class MaleUser implements RandomUserInterface{
   User getUser(){
-    var fullName = HumanGen.generateABoyFullname();
+    var fullName = HumanGen.generateABoyFirstName() + " " + HumanGen.generateASurname();
     var profilePic = HumanGen.generateAdultMaleImage();
 
     return new User(fullName, profilePic);
@@ -87,21 +99,21 @@ class MaleUser implements RandomUserInterface{
 }
 
 User getRandomUser(){
-  var randomUsers = {MaleUser(), FemaleUser()} as List<RandomUserInterface>;
-  int i = new Random().nextInt(randomUsers.length);
+  var randomUsers = [MaleUser(), FemaleUser()];
+  int i = Random().nextInt(randomUsers.length);
 
   return randomUsers[i].getUser();
 }
 
 String getRecentAction(){
   var recentActions = [
-    "Added $getSmallNumber leads",
-    "$getSmallNumber new messages",
+    "Added ${UserGen.getSmallNumber() + 1} leads",
+    "${UserGen.getSmallNumber() + 1} new messages",
     "Just signed up",
-    "Just got paid"
+    "Just got paid!"
   ];
 
-  var randomIndex = random.nextInt(recentActions.length);
+  var randomIndex = Random().nextInt(recentActions.length);
   return recentActions[randomIndex];
 }
 
