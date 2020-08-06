@@ -85,6 +85,7 @@ class HomePage extends StatelessWidget {
     return ListView.separated(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
+        physics: new NeverScrollableScrollPhysics(),
         itemCount: recentLeads.length + 1,
         separatorBuilder: (context, i) {
           if (i == 0) return Divider(height: 0, color: Colors.transparent);
@@ -125,6 +126,7 @@ class HomePage extends StatelessWidget {
   Widget buildMyFriends() {
     return ListView.separated(
         scrollDirection: Axis.vertical,
+        physics: new NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         itemCount: seller.friends.length + 1,
         separatorBuilder: (context, i) {
