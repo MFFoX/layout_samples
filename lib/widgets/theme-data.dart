@@ -8,6 +8,7 @@ class ThemeColors{
   static const Color Glacier = Color.fromRGBO(124, 186, 189, 1);
   static const Color DodgerBlue = Color.fromRGBO(0, 132, 244, 1);
   static const Color MayaBlue = Color.fromRGBO(78, 174, 255, 1);
+  static const Color IconGray = Color.fromRGBO(142, 142, 147, 1);
 }
 
 class FontSizes {
