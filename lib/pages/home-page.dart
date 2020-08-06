@@ -108,6 +108,13 @@ class HomePage extends StatelessWidget {
               isThreeLine: true,
               title: Text(currentLead.fullName,
                   style: TextStyles.body.bold.size(15).c(Colors.black87)),
+              trailing: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.arrow_forward_ios,
+                      size: 18, color: ThemeColors.IconGray),
+                ],
+              ),
               subtitle: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,16 +143,24 @@ class HomePage extends StatelessWidget {
         itemBuilder: (context, i) {
           if (i == 0)
             return ListTile(
-                title: Padding(
-              padding: EdgeInsets.only(top: 27, bottom: 15),
-              child: Text("My Friends", style: TextStyles.body.bold.size(17)),
-            ));
+              title: Padding(
+                padding: EdgeInsets.only(top: 27, bottom: 15),
+                child: Text("My Friends", style: TextStyles.body.bold.size(17)),
+              ),
+            );
 
           final currentFriend = seller.friends[i - 1];
 
           return ListTile(
               leading: CircleAvatar(
                 backgroundImage: AssetImage(currentFriend.profilePic),
+              ),
+              trailing: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.arrow_forward_ios,
+                      size: 18, color: ThemeColors.IconGray),
+                ],
               ),
               title: Text(currentFriend.fullName,
                   style: TextStyles.body.bold.size(15).c(Colors.black87)),
