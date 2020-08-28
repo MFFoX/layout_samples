@@ -9,6 +9,8 @@ class ThemeColors{
   static const Color DodgerBlue = Color.fromRGBO(0, 132, 244, 1);
   static const Color MayaBlue = Color.fromRGBO(78, 174, 255, 1);
   static const Color IconGray = Color.fromRGBO(142, 142, 147, 1);
+  static const Color MidGray = Color.fromRGBO(142, 142, 147, 1);
+  static const Color LightGray = Color.fromRGBO(228, 228, 228, 1);
 }
 
 class FontSizes {
